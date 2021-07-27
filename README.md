@@ -197,6 +197,10 @@ If possible, use the `--mpi` argument to enable multiprocessing, as lookups pre-
 
 That's it! You can now run simulations of your point-neuron model upon ultrasonic stimulation.
 
+# Legacy code
+
+This repository has been created on July 27 2021 with a fresh version of the code. To access older versions along with the code history, please refer to the old repository on C4Science (https://c4science.ch/diffusion/4670/).
+
 # Authors
 
 Code written and maintained by Theo Lemaire (theo.lemaire@epfl.ch).
