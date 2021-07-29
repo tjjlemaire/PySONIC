@@ -85,7 +85,7 @@ But also some valuable models used in peripheral axon models:
 
 - Clone the repository and install the python package:
 
-```git clone https://c4science.ch/diffusion/4670/pysonic.git```
+```git clone https://github.com/tjjlemaire/PySONIC.git```
 
 ```cd pysonic```
 
