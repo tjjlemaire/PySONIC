@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2017-06-13 09:40:02
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-05-28 17:01:43
+# @Last Modified time: 2023-02-21 12:58:19
 
 import os
 from setuptools import setup
@@ -65,7 +65,8 @@ setup(
         'lockfile>=0.1.2',
         'multiprocess>=0.70',
         'pushbullet.py>=0.11.0',
-        'boltons>=20.1.0'
+        'boltons>=20.1.0',
+        'openpyxl',
     ],
     zip_safe=False
 )
