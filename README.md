@@ -168,13 +168,11 @@ If you wish to run coarse-grained simulations outside of the default lookup rang
 
 If possible, use the `--mpi` argument to enable multiprocessing, as lookups pre-computation greatly benefits from parallelization. Several more options are available. To view them, type in:
 
-```python run_lookups -h```
+```python run_lookups.py -h```
 
 ## Add other neuron types
 
-You can easily add other neuron types into the package, providing their ion channel populations and underlying voltage-gated dynamics equations are known.
-
-To add a new point-neuron model, follow this procedure:
+You can add other neuron types into the package, providing their ion channel populations and underlying voltage-gated dynamics equations are known. To add a new point-neuron model, follow this point-by-point "recipe":
 
 1. Create a new file, and save it in the `neurons` sub-folder, with an explicit name (e.g. `my_neuron.py`).
 2. Copy-paste the content of the `template.py` file (also located in the `neurons` sub-folder) into your file.
