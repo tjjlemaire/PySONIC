@@ -71,25 +71,25 @@ But also some valuable models used in peripheral axon models:
 
 # Installation
 
-- Open a terminal.
-
 - Install [git-lfs](https://github.com/git-lfs/git-lfs/wiki/Installation) if not already done. This step is crucial as it ensures that lookup tables will be downloaded when you clone the repository.
 
-- Activate a Python3 environment if needed, e.g. on the tnesrv5 machine:
+- Open a terminal
 
-```source /opt/apps/anaconda3/bin activate```
+- Create a new conda environment called `sonic` with Python 3.6+:
 
-- Check that the appropriate version of pip is activated:
+```conda create -n sonic python=3.6```
 
-```pip --version```
+- Activate the `sonic` environment:
+
+```conda activate sonic```
 
 - Clone the repository and install the python package:
 
-```git clone https://github.com/tjjlemaire/PySONIC.git```
-
-```cd pysonic```
-
-```pip install -e .```
+```
+git clone https://github.com/tjjlemaire/PySONIC.git
+cd pysonic
+pip install -e .
+```
 
 # Usage
 
