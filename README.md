@@ -158,8 +158,17 @@ Several more options are available. To view them, type in:
 
 ```python <script_name> -h```
 
-
 # Extend the package
+
+## Generate new lookups
+
+If you wish to run coarse-grained simulations outside of the default lookup range, you can easily pre-compute new lookup tables using the `run_lookups.py` command-line script located in the `scripts` folder. For example, if you want to generate new lookups for a fast-spiking neuron at 500 kHz, with a 32 nm radius bilayer sonophore and covering various sonophore coverage fractions: 
+ 
+```python run_lookups.py -n FS -a 32 -f 500 --spanFs```
+
+If possible, use the `--mpi` argument to enable multiprocessing, as lookups pre-computation greatly benefits from parallelization. Several more options are available. To view them, type in:
+
+```python run_lookups -h```
 
 ## Add other neuron types
 
@@ -189,7 +198,7 @@ from .my_neuron import MyNeuron
 13. Uncomment the `addSonicFeatures` decorator on top of your class. **This decorator will automatically parse the `derStates`, `steadyStates` and `currents` methods in order to adapt your neuron model to US stimulation. For this to work, you need to make sure to**:
    - **keep them as class methods**
    - **check that all calls to functions that depend solely on `Vm` appear directly in the methods' lambda expressions and are not hidden inside nested function calls.**
-14. Pre-compute lookup tables required to run coarse-grained  simulations of the neuron model upon ultrasonic stimulation. To do so, go to the `scripts` directory and run the `run_lookups.py` script with the neuron's name as command line argument, e.g.:
+14. Pre-compute lookup tables required to run coarse-grained simulations of the neuron model upon ultrasonic stimulation. To do so, go to the `scripts` directory and run the `run_lookups.py` script with the neuron's name as command line argument, e.g.:
 
 ```python run_lookups.py -n myneuron --mpi```
 
@@ -203,7 +212,7 @@ This repository has been created on July 27 2021 with a fresh version of the cod
 
 # Authors
 
-Code written and maintained by Theo Lemaire (theo.lemaire@epfl.ch).
+Code written and maintained by Theo Lemaire (theo.lemaire1@gmail.com).
 
 # License & citation
 
