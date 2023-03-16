@@ -84,7 +84,7 @@ conda activate sonic
 
 ```
 git clone https://github.com/tjjlemaire/PySONIC.git
-cd pysonic
+cd PySONIC
 pip install -e .
 ```
 
