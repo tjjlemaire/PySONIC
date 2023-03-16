@@ -221,7 +221,7 @@ DOI: 10.1088/1741-2552/ab1685
 
 # References
 
- - [1] B. Krasovitski, V. Frenkel, S. Shoham, and E. Kimmel, “Intramembrane cavitation as a unifying mechanism for ultrasound-induced bioeffects,” Proc. Natl. Acad. Sci. U.S.A., vol. 108, no. 8, pp. 3258–3263, Feb. 2011, [DOI](https://doi.org/10.1073/pnas.1015771108).
+- [1] B. Krasovitski, V. Frenkel, S. Shoham, and E. Kimmel, “Intramembrane cavitation as a unifying mechanism for ultrasound-induced bioeffects,” Proc. Natl. Acad. Sci. U.S.A., vol. 108, no. 8, pp. 3258–3263, Feb. 2011, [DOI](https://doi.org/10.1073/pnas.1015771108).
 - [2] M. Plaksin, S. Shoham, and E. Kimmel, “Intramembrane Cavitation as a Predictive Bio-Piezoelectric Mechanism for Ultrasonic Brain Stimulation,” Physical Review X, vol. 4, no. 1, Jan. 2014, [DOI](https://doi.org/10.1103/PhysRevX.4.011004).
 - [3] M. Plaksin, E. Kimmel, and S. Shoham, “Cell-Type-Selective Effects of Intramembrane Cavitation as a Unifying Theoretical Framework for Ultrasonic Neuromodulation,” eNeuro, vol. 3, no. 3, Jun. 2016, [DOI](https://doi.org/10.1523/ENEURO.0136-15.2016).
 - [4] T. Lemaire, E. Neufeld, N. Kuster, and S. Micera, “Understanding ultrasound neuromodulation using a computationally efficient and interpretable model of intramembrane cavitation,” J. Neural Eng., vol. 16, no. 4, p. 046007, Jul. 2019, [DOI](https://doi.org/10.1088/1741-2552/ab1685).
