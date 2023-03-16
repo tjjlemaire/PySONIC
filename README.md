@@ -73,7 +73,6 @@ But also some valuable models used in peripheral axon models:
 Install [git-lfs](https://github.com/git-lfs/git-lfs/wiki/Installation) if not already done. This step is crucial as it ensures that lookup tables will be downloaded when you clone the repository.
 
 - Open a terminal
-
 - Create a new conda environment called `sonic` with Python 3.6+, and activate it:
 
 ```
@@ -81,7 +80,7 @@ conda create -n sonic python=3.6
 conda activate sonic
 ```
 
-- Clone the repository and install the python package:
+- Clone the `PySONIC` repository and install it as a python package:
 
 ```
 git clone https://github.com/tjjlemaire/PySONIC.git
@@ -89,7 +88,7 @@ cd pysonic
 pip install -e .
 ```
 
-That's it. All package dependencies (numpy, scipy, ...) should be installed automatically.
+All package dependencies (numpy, scipy, ...) should be installed automatically.
 
 # Usage
 
