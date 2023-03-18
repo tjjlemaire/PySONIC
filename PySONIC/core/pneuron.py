@@ -228,7 +228,7 @@ class PointNeuron(Model):
         for cname in self.getCurrentsNames():
             if 'Leak' not in cname:
                 key = f'i_{{{cname[1:]}}}\ kin.'
-                cargs = inspect.getargspec(getattr(self, cname))[0][1:]
+                cargs = inspect.getfullargspec(getattr(self, cname))[0][1:]
                 pltscheme[key] = [var for var in cargs if var not in ['Vm', 'Cai']]
 
         return pltscheme
