@@ -83,7 +83,7 @@ conda activate sonic
 - Clone the `PySONIC` repository and install it as a python package:
 
 ```
-git clone https://github.com/tjjlemaire/PySONIC.git
+git clone https://github.com/lcomyn/PySONIC.git
 cd PySONIC
 pip install -e .
 ```
