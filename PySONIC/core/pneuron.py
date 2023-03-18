@@ -135,7 +135,7 @@ class PointNeuron(Model):
 
         for cname in cls.getCurrentsNames():
             cfunc = getattr(cls, cname)
-            cargs = inspect.getargspec(cfunc)[0][1:]
+            cargs = inspect.getfullargspec(cfunc)[0][1:]
             pltvars[cname] = {
                 'desc': inspect.getdoc(cfunc).splitlines()[0],
                 'label': f'I_{{{cname[1:]}}}',
