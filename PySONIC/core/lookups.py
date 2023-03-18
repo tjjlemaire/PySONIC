@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2019-06-27 13:59:02
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2020-08-08 16:23:59
+# @Last Modified time: 2023-03-18 18:29:20
 
 import os
 from sys import getsizeof
@@ -50,6 +50,7 @@ class Lookup:
         if self.ndims == 1:
             self.refkey = self.inputs[0]
             self.ref = self.refs[self.refkey]
+            self.refbounds = (self.ref.min(), self.ref.max())
 
     def __repr__(self):
         ref_str = ', '.join([f'{x[0]}: {x[1]}' for x in zip(self.inputs, self.dims)])
@@ -316,6 +317,8 @@ class Lookup:
             .. warning:: This method can only be used for 1 dimensional lookups.
         '''
         assert self.ndims == 1, 'Cannot interpolate multi-dimensional object'
+        if isinstance(ref_value, float):
+            isWithin(self.inputs[0], ref_value, self.refbounds)
         return np.interp(ref_value, self.ref, self.tables[var_key], left=np.nan, right=np.nan)
 
     def interpolate1D(self, value):
