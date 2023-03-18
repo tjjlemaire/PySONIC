@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2017-08-03 11:53:04
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-18 14:29:32
+# @Last Modified time: 2023-03-18 18:42:14
 
 import abc
 import inspect
@@ -423,7 +423,7 @@ class PointNeuron(Model):
     @property
     def Qbounds(self):
         ''' Determine bounds of membrane charge physiological range for a given neuron. '''
-        return np.array([np.round(self.Vm0 - 25.0), 50.0]) * self.Cm0 * 1e-3  # C/m2
+        return np.array([np.round(self.Vm0 - 35.0), 50.0]) * self.Cm0 * 1e-3  # C/m2
 
     @classmethod
     def isVoltageGated(cls, state):
