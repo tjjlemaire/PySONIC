@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2017-08-03 11:53:04
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-05-28 13:05:23
+# @Last Modified time: 2023-03-18 14:29:32
 
 import abc
 import inspect
@@ -135,7 +135,7 @@ class PointNeuron(Model):
 
         for cname in cls.getCurrentsNames():
             cfunc = getattr(cls, cname)
-            cargs = inspect.getargspec(cfunc)[0][1:]
+            cargs = inspect.getfullargspec(cfunc)[0][1:]
             pltvars[cname] = {
                 'desc': inspect.getdoc(cfunc).splitlines()[0],
                 'label': f'I_{{{cname[1:]}}}',
@@ -228,7 +228,7 @@ class PointNeuron(Model):
         for cname in self.getCurrentsNames():
             if 'Leak' not in cname:
                 key = f'i_{{{cname[1:]}}}\ kin.'
-                cargs = inspect.getargspec(getattr(self, cname))[0][1:]
+                cargs = inspect.getfullargspec(getattr(self, cname))[0][1:]
                 pltscheme[key] = [var for var in cargs if var not in ['Vm', 'Cai']]
 
         return pltscheme
