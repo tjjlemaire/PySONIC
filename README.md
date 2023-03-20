@@ -70,10 +70,10 @@ But also some valuable models used in peripheral axon models:
 
 # Installation
 
-Install [git-lfs](https://github.com/git-lfs/git-lfs/wiki/Installation) if not already done. This step is crucial as it ensures that lookup tables will be downloaded when you clone the repository.
-
-- Open a terminal
-- Create a new conda environment called `sonic` with an appropriate Python version, and activate it. For instance with Python 3.11:
+- Install [git-lfs](https://github.com/git-lfs/git-lfs/wiki/Installation) if not already done. This step is crucial as it ensures that lookup tables will be downloaded when you clone the repository.
+- Download and install [Anaconda](https://www.anaconda.com/products/distribution) if not already done.
+- Open a terminal. For Windows users, you might need to use the *Anaconda Prompt* if you did not add Anaconda to the path.
+- Create a new Anaconda environment called `sonic` with an appropriate Python version (i.e., 3.6 or more recent), and activate it. For instance with Python 3.11:
 
 ```
 conda create -n sonic python=3.11
