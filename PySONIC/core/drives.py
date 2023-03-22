@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2020-01-30 11:46:47
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-06-14 21:26:13
+# @Last Modified time: 2023-03-22 12:09:13
 
 import abc
 import numpy as np
@@ -328,7 +328,7 @@ class AcousticDriveArray(DriveArray):
 
     @property
     def freqs(self):
-        return [x.f for x in self]
+        return np.array([x.f for x in self])
 
     def is_monofrequency(self):
         return np.unique(self.freqs.size) == 1

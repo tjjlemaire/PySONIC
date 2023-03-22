@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2019-05-28 14:45:12
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-05-15 11:09:39
+# @Last Modified time: 2023-03-22 12:05:32
 
 import numpy as np
 from scipy.interpolate import interp1d
@@ -343,7 +343,7 @@ class PeriodicSolver(ODESolver):
             nmax = NCYCLES_MAX
         if nmin is None:
             nmin = 2
-        assert nmin < nmax, 'incorrect bounds for number of cycles (min > max)'
+        assert nmin <= nmax, 'incorrect bounds for number of cycles (min > max)'
 
         # Initialize system
         if y0 is not None:

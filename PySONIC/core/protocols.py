@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2019-11-12 18:04:45
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-06-15 17:50:30
+# @Last Modified time: 2023-03-22 12:16:44
 
 import abc
 import numpy as np
@@ -651,7 +651,7 @@ class ProtocolArray(StimObjArray):
             colors = plt.get_cmap('tab10').colors
         fig = sum(self).plot(label='combined', color='k')
         ax = fig.axes[0]
-        for c, (k, pp) in zip(colors, self.objs.items()):
+        for c, (k, pp) in zip(colors, self.items()):
             pp.plot(label=k, ax=ax, color=c)
         return fig
 

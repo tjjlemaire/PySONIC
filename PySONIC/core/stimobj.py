@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2020-04-21 11:32:49
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-06-14 21:23:18
+# @Last Modified time: 2023-03-22 12:17:21
 
 import abc
 import numpy as np
@@ -192,6 +192,9 @@ class StimObjArray:
     def filecodes(self):
         return self.mergeDicts(
             [x.filecodes for x in self.objs.values()], skey='_', jkey='_', wraplist=False)
+
+    def items(self):
+        return self.objs.items()
 
     def __getitem__(self, i):
         return list(self.objs.values())[i]
