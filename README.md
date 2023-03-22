@@ -119,7 +119,19 @@ GroupedTimeSeries([(data, meta)]).render()
 plt.show()
 ```
 
-Have a look at the `demo.ipynb` notebook located in the `notebooks` folder for more details.
+The output `data` is formatted as a pandas dataframe, hence you can easily export your simulation results to Excel/CSV for further processing with:
+
+```python
+data.dropna(axis=1).to_excel('mysim.xlsx')
+```
+
+Similarly, you can export the output figure to PDF for further editing with:
+
+```python
+fig.savefig('myfig.pdf')
+```
+
+For more code examples, have a look at the [demo](notebooks/demo.ipynb) notebook.
 
 ## From the command line
 
