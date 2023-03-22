@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2020-01-30 11:46:47
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-22 12:09:13
+# @Last Modified time: 2023-03-22 13:13:24
 
 import abc
 import numpy as np
@@ -318,6 +318,15 @@ class DriveArray(StimObjArray):
         return self.copy().updatedX(0.)
 
 
+class ElectricDriveArray(DriveArray):
+
+    def __init__(self, objs):
+        for x in objs:
+            if not isinstance(x, ElectricDrive):
+                raise ValueError(f'invalid instance: {x}')
+        super().__init__(objs)
+
+
 class AcousticDriveArray(DriveArray):
 
     def __init__(self, objs):
@@ -364,3 +373,13 @@ class AcousticDriveArray(DriveArray):
     @property
     def modulationFrequency(self):
         return np.mean(self.freqs)
+
+
+def getDriveArray(drives):
+    refdrive = drives[0]
+    if isinstance(refdrive, ElectricDrive):
+        return ElectricDriveArray(drives)
+    elif isinstance(refdrive, AcousticDrive):
+        return AcousticDriveArray(drives)
+    else:
+        raise ValueError(f'cannot instantiate array from drive type: {refdrive}')
