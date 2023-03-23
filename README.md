@@ -115,7 +115,7 @@ pp = PulsedProtocol(100e-3, 100e-3, tstart=10e-3)
 
 # Run simulation and plot results
 data, meta = nbls.simulate(drive, pp)
-GroupedTimeSeries([(data, meta)]).render()
+fig = GroupedTimeSeries([(data, meta)]).render()[0]
 plt.show()
 ```
 
