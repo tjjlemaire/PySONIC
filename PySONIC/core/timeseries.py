@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2021-05-15 11:01:04
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-06-22 15:32:04
+# @Last Modified time: 2023-03-23 17:41:47
 
 import pandas as pd
 import numpy as np
@@ -236,3 +236,7 @@ class SpatiallyExtendedTimeSeries:
 
     def sampleEvery(self, frequency):
         return self.__class__({k: v.sampleEvery(frequency) for k, v in self.items()})
+    
+    @property
+    def size(self):
+        return len(self.keys())
