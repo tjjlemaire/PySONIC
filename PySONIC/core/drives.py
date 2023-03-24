@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2020-01-30 11:46:47
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-23 16:47:03
+# @Last Modified time: 2023-03-24 09:33:16
 
 import abc
 import numpy as np
@@ -376,6 +376,7 @@ class AcousticDriveArray(DriveArray):
 
 
 def getDriveArray(drives):
+    ''' Interface function to initialize the appropriate drive/drive array '''
     if isinstance(drives, Drive):
         return drives
     if len(drives) == 1:

@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2020-04-21 11:32:49
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-22 12:17:21
+# @Last Modified time: 2023-03-24 09:31:32
 
 import abc
 import numpy as np
@@ -145,7 +145,10 @@ class StimObjIterator:
 class StimObjArray:
 
     def __init__(self, objs):
-        self.objs = {f'{self.objkey} {i + 1}': s for i, s in enumerate(objs)}
+        if isinstance(objs, dict):
+            self.objs = objs
+        elif isinstance(objs, list):
+            self.objs = {f'{self.objkey} {i + 1}': s for i, s in enumerate(objs)}
 
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
@@ -168,7 +171,6 @@ class StimObjArray:
                 d[k] = [x.get(k, f'phi{skey}3.14rad').split(skey)[1] for x in dlist]
             else:
                 d[k] = [x[k].split(skey)[1] for x in dlist]
-        # d = {k: [x[k].split(skey)[1] for x in dlist] for k in dlist[0].keys()}
         # Discard duplicates in each list (while retaining element order)
         d = {k: [v[i] for i in sorted(np.unique(v, return_index=True)[1])] for k, v in d.items()}
         # Format each list element as a string

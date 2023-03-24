@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2018-09-25 16:18:45
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-05-27 20:35:42
+# @Last Modified time: 2023-03-24 17:02:32
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -31,11 +31,7 @@ class TimeSeriesPlot(GenericPlot):
 
     @staticmethod
     def getStimStates(df):
-        try:
-            stimstate = df['stimstate']
-        except KeyError:
-            stimstate = df['states']
-        return stimstate.values
+        return df['stimstate'].values
 
     @classmethod
     def getStimPulses(cls, t, states):
