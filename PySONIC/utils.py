@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2016-09-19 22:30:46
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-06-23 17:15:03
+# @Last Modified time: 2023-03-28 10:12:36
 
 ''' Definition of generic utility functions used in other modules '''
 
@@ -1092,3 +1092,9 @@ def getTimeStr(seconds):
             return n, abs(n) != 1 and 's' or ''
         s = '{:d} day{}, {}'.format(*plural(dd), s)
     return s
+
+
+def add_indent(s, nspaces=1):
+    ''' Add space indent to every line of string '''
+    indent = ''.join([' '] * nspaces)
+    return indent + indent.join(s.splitlines(keepends=True))
