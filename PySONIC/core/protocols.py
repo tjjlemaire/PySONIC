@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2019-11-12 18:04:45
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-22 12:16:44
+# @Last Modified time: 2023-03-28 14:07:56
 
 import abc
 import numpy as np
@@ -296,7 +296,7 @@ class PulsedProtocol(TimeProtocol):
 
     @property
     def tstop(self):
-        return self.tstim + self.toffset
+        return self.tstim + self.toffset + self.tstart
 
     def pdict(self, **kwargs):
         d = super().pdict(**kwargs)

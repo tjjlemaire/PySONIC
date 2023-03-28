@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2016-09-19 22:30:46
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-28 10:12:36
+# @Last Modified time: 2023-03-28 11:05:01
 
 ''' Definition of generic utility functions used in other modules '''
 
@@ -29,6 +29,7 @@ from tkinter import filedialog
 import base64
 import datetime
 import numpy as np
+import pandas as pd
 from scipy.optimize import brentq
 from scipy import linalg
 import colorlog
@@ -314,7 +315,7 @@ def expandRange(xmin, xmax, exp_factor=2):
 
 
 def isIterable(x):
-    for t in [list, tuple, np.ndarray]:
+    for t in [list, tuple, np.ndarray, pd.Index, pd.MultiIndex, pd.Series]:
         if isinstance(x, t):
             return True
     return False
