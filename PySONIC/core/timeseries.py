@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2021-05-15 11:01:04
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-23 17:41:47
+# @Last Modified time: 2023-03-29 18:35:32
 
 import pandas as pd
 import numpy as np
@@ -153,6 +153,9 @@ class SpatiallyExtendedTimeSeries:
 
     def __iter__(self):
         raise ValueError(f'{self.__class__.__name__}  is not iterable')
+    
+    def __repr__(self):
+        return f'{self.__class__.__name__}({len(self.data)} sections, {self[self.refkey].shape[1]} variables)'
 
     def keys(self):
         return self.data.keys()
@@ -164,7 +167,10 @@ class SpatiallyExtendedTimeSeries:
         return self.data.items()
 
     def __getitem__(self, key):
-        return self.data[key]
+        try:
+            return self.data[key]
+        except KeyError:
+            raise KeyError(f'section "{key}" not found in dataset')
 
     def __delitem__(self, key):
         del self.data[key]
@@ -215,6 +221,11 @@ class SpatiallyExtendedTimeSeries:
     @property
     def refkey(self):
         return list(self.keys())[0]
+
+    @property
+    def centralkey(self):
+        keys = list(self.keys())
+        return keys[len(keys) // 2]
 
     @property
     def time(self):
