@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2017-08-03 11:53:04
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-18 18:42:14
+# @Last Modified time: 2023-03-29 19:51:42
 
 import abc
 import inspect
@@ -274,7 +274,7 @@ class PointNeuron(Model):
         ''' Get lookup of membrane potential rate constants interpolated along the neuron's
             charge physiological range. '''
         logger.debug(f'generating {self} baseline lookup')
-        Qmin, Qmax = expandRange(*self.Qbounds, exp_factor=10.)
+        Qmin, Qmax = expandRange(*self.Qbounds, exp_factor=5.)
         Qref = np.arange(Qmin, Qmax, 1e-5)  # C/m2
         Vref = Qref / self.Cm0 * 1e3  # mV
         tables = {k: np.vectorize(v)(Vref) for k, v in self.effRates().items()}
