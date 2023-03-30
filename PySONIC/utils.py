@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2016-09-19 22:30:46
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-29 21:16:06
+# @Last Modified time: 2023-03-30 13:23:36
 
 ''' Definition of generic utility functions used in other modules '''
 
@@ -1099,3 +1099,8 @@ def add_indent(s, nspaces=1):
     ''' Add space indent to every line of string '''
     indent = ''.join([' '] * nspaces)
     return indent + indent.join(s.splitlines(keepends=True))
+
+
+def npformat(a, fmt='.3g'):
+    ''' format numpy array '''
+    return np.array2string(a, formatter={'float': lambda x: f'{x:{fmt}}'})
