@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2016-09-19 22:30:46
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-28 11:05:01
+# @Last Modified time: 2023-03-29 21:16:06
 
 ''' Definition of generic utility functions used in other modules '''
 
@@ -151,7 +151,7 @@ def getSIpair(x, scale='lin', unit_dim=1):
 
 def si_format(x, precision=0, space=' ', **kwargs):
     ''' Format a float according to the SI unit system, with the appropriate prefix letter. '''
-    if isinstance(x, float) or isinstance(x, int) or isinstance(x, np.float) or\
+    if isinstance(x, float) or isinstance(x, int) or\
        isinstance(x, np.int32) or isinstance(x, np.int64):
         factor, prefix = getSIpair(x, **kwargs)
         return f'{x / factor:.{precision}f}{space}{prefix}'
