@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2016-09-19 22:30:46
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-30 13:23:36
+# @Last Modified time: 2023-04-06 10:21:06
 
 ''' Definition of generic utility functions used in other modules '''
 
@@ -26,14 +26,11 @@ from tqdm import tqdm
 import logging
 import tkinter as tk
 from tkinter import filedialog
-import base64
-import datetime
 import numpy as np
 import pandas as pd
 from scipy.optimize import brentq
 from scipy import linalg
 import colorlog
-from pushbullet import Pushbullet
 
 os_name = platform.system()
 
@@ -725,63 +722,6 @@ def rotAroundPoint2D(x, theta, p):
 
     # Subtract, rotate and add
     return R.dot(x - ptile) + ptile
-
-
-def getKey(keyfile='pushbullet.key'):
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    package_root = os.path.abspath(os.path.join(dir_path, os.pardir))
-    fpath = os.path.join(package_root, keyfile)
-    if not os.path.isfile(fpath):
-        raise FileNotFoundError('pushbullet API key file not found')
-    with open(fpath) as f:
-        encoded_key = f.readlines()[0]
-    return base64.b64decode(str.encode(encoded_key)).decode()
-
-
-def sendPushNotification(msg):
-    try:
-        key = getKey()
-        pb = Pushbullet(key)
-        dt = datetime.datetime.now()
-        s = dt.strftime('%Y-%m-%d %H:%M:%S')
-        pb.push_note('Code Messenger', f'{s}\n{msg}')
-    except FileNotFoundError:
-        logger.error(f'Could not send push notification: "{msg}"')
-
-
-def alert(func):
-    ''' Run a function, and send a push notification upon completion,
-        or if an error is raised during its execution.
-    '''
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        try:
-            out = func(*args, **kwargs)
-            sendPushNotification(f'completed "{func.__name__}" execution successfully')
-            return out
-        except BaseException as e:
-            sendPushNotification(f'error during "{func.__name__}" execution: {e}')
-            raise e
-    return wrapper
-
-
-def sunflower(n, radius=1, alpha=1):
-    ''' Generate a population of uniformly distributed 2D data points
-        in a unit circle.
-
-        :param n: number of data points
-        :param alpha: coefficient determining evenness of the boundary
-        :return: 2D matrix of Cartesian (x, y) positions
-    '''
-    nbounds = np.round(alpha * np.sqrt(n))    # number of boundary points
-    phi = (np.sqrt(5) + 1) / 2                # golden ratio
-    k = np.arange(1, n + 1)                   # index vector
-    theta = 2 * np.pi * k / phi**2            # angle vector
-    r = np.sqrt((k - 1) / (n - nbounds - 1))  # radius vector
-    r[r > 1] = 1
-    x = r * np.cos(theta)
-    y = r * np.sin(theta)
-    return radius * np.vstack((x, y))
 
 
 def filecode(model, *args):

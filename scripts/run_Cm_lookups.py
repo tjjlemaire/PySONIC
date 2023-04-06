@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2020-08-05 17:42:12
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2020-08-05 20:31:11
+# @Last Modified time: 2023-04-06 10:16:51
 
 ''' Create Cm lookup table. '''
 
@@ -11,12 +11,11 @@ import os
 import logging
 import numpy as np
 
-from PySONIC.utils import logger, isIterable, alert
+from PySONIC.utils import logger, isIterable
 from PySONIC.core import BilayerSonophore, Batch, Lookup, AcousticDrive
 from PySONIC.parsers import MechSimParser
 
 
-@alert
 def computeCmLookup(bls, fref, Aref, mpi=False, loglevel=logging.INFO):
     descs = {'f': 'US frequencies', 'A': 'US amplitudes'}
 

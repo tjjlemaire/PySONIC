@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2019-06-04 18:24:29
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-05-23 12:01:47
+# @Last Modified time: 2023-04-06 10:17:12
 
 import inspect
 import logging
@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 from ..core import NeuronalBilayerSonophore, Batch
 from .pltutils import *
-from ..utils import logger, fileCache, alert
+from ..utils import logger, fileCache
 
 
 root = '../../../QSS analysis/data'
@@ -230,7 +230,6 @@ def plotQSSVarVsQm(pneuron, a, f, varname, amps=None, DC=1.,
 #         '{}_QSS_FPs_{:.0f}kHz_{:.2f}-{:.2f}kPa_DC{:.0f}%'.format(
 #             nbls.pneuron.name, f * 1e-3, amps.min() * 1e-3, amps.max() * 1e-3, DC * 1e2)
 # )
-# @alert
 def getQSSFixedPointsvsAmplitude(nbls, f, amps, DC, mpi=False, loglevel=logging.INFO):
 
     # Compute 2D QSS charge variation array

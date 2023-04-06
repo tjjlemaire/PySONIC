@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2017-06-02 17:50:10
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-18 18:39:47
+# @Last Modified time: 2023-04-06 10:16:57
 
 ''' Create lookup table for specific neuron. '''
 
@@ -12,14 +12,13 @@ import itertools
 import logging
 import numpy as np
 
-from PySONIC.utils import logger, isIterable, alert
+from PySONIC.utils import logger, isIterable
 from PySONIC.core import NeuronalBilayerSonophore, Batch, Lookup, AcousticDrive
 from PySONIC.parsers import MechSimParser
 from PySONIC.neurons import getDefaultPassiveNeuron
 from PySONIC.constants import DQ_LOOKUP
 
 
-# @alert
 def computeAStimLookup(pneuron, aref, fref, Aref, fsref, Qref, novertones=0,
                        test=False, mpi=False, loglevel=logging.INFO):
     ''' Run simulations of the mechanical system for a multiple combinations of
