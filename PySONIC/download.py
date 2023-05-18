@@ -2,7 +2,7 @@
 # @Author: Theo Lemaire
 # @Date:   2023-05-17 15:37:50
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-05-18 08:33:48
+# @Last Modified time: 2023-05-18 08:43:58
 
 ''' Set of utility functions to download lookup files from remote repository. '''
 
@@ -80,14 +80,14 @@ def get_file_info(url, head_only=True):
     return res.headers
 
 
-def download_file(url, fname=None, local_dir=None, overwrite=False, chunk_size=1024):
+def download_file(url, fname=None, local_dir=None, overwrite=True, chunk_size=1024):
     ''' 
     Download file from url.
     
     :param url: URL to remote file
     :param fname (optional): file name to save to. If no file name is given, a filename is inferred from the URL.
     :param local_dir (optional): local directory to save to. If no directory is given, the parent directory of this module is used.
-    :param overwrite (optional): whether to overwrite existing local file
+    :param overwrite (optional): whether to overwrite existing local file (defaults to True)
     :param chunk_size: chunk size for download
     :return: path to local downloaded file
     '''
@@ -145,20 +145,20 @@ def download_file(url, fname=None, local_dir=None, overwrite=False, chunk_size=1
     return fpath
 
 
-def download_lookups(local_dir=None, **kwargs):
+def download_lookups(**kwargs):
     ''' Download all available lookup files from remote folder '''
     # Get dictionary of remote lookup files
     lkpsdf = list_remote_lookups()
 
     # Create path to local lookups directory, if not existing
-    if local_dir is not None:
-        os.makedirs(local_dir, exist_ok=True)
+    if LOOKUP_DIR is not None:
+        os.makedirs(LOOKUP_DIR, exist_ok=True)
 
     # For each lookup file
     for _, row in lkpsdf.iterrows():
         # Download from URL, or log warning if error was raised
         try:
-            download_file(row['url'], fname=row['name'], local_dir=local_dir, **kwargs)
+            download_file(row['url'], fname=row['name'], local_dir=LOOKUP_DIR, **kwargs)
         except FileExistsError as err:
             logger.warning(f'{err} -> skipping')
 
@@ -168,5 +168,5 @@ def download_lookups(local_dir=None, **kwargs):
 
 if __name__ == '__main__':
     # Download all lookup files
-    download_lookups(local_dir=LOOKUP_DIR, overwrite=True)
+    download_lookups()
 
