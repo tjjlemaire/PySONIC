@@ -2,7 +2,7 @@
 # @Author: Theo Lemaire
 # @Date:   2023-05-18 08:35:24
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-05-18 08:42:24
+# @Last Modified time: 2023-05-18 12:58:13
 
 ''' Main entry point for PySONIC package. '''
 
@@ -29,7 +29,7 @@ if len(sys.argv) == 1:
 command = sys.argv.pop(1)
 
 # If not a valid command, log error, print available commands and exit
-if command not in command.keys():
+if command not in commands.keys():
     logger.error(f'Unknown command: {command}\n{avail_commands_str}')
     sys.exit(1)
 

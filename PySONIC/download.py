@@ -2,7 +2,7 @@
 # @Author: Theo Lemaire
 # @Date:   2023-05-17 15:37:50
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-05-18 08:43:58
+# @Last Modified time: 2023-05-18 15:07:34
 
 ''' Set of utility functions to download lookup files from remote repository. '''
 
@@ -43,7 +43,6 @@ def list_remote_lookups():
 
     # Filter out non-lookup files
     lkpfiles = [item for item in files if item['name'].endswith('.pkl')]
-    lkpfiles = lkpfiles[:2]
 
     # Extract file information (download URL and size) for each lookup file, and
     # store in dataframe
@@ -164,9 +163,3 @@ def download_lookups(**kwargs):
 
     # Return list of downloaded files
     logger.info('downloads completed.')
-
-
-if __name__ == '__main__':
-    # Download all lookup files
-    download_lookups()
-
