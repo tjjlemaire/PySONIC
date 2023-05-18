@@ -29,11 +29,7 @@ The default (and fastest) simulation method is the `sonic` method, and makes use
 Numerical integration routines are implemented outside the models, in a separate `solvers` module:
 - `PeriodicSolver` integrates a differential system periodically until a stable periodic behavior is detected.
 - `EventDrivenSolver` integrates a differential system across a specific set of "events" that modulate the stimuluation drive over time.
-- `HybridSolver` inherits from both `PeriodicSolver`and `EventDrivenSolver`. It integrates a differential system using a hybrid scheme inside each "ON" or "OFF" period:
-  1. The full ODE system is integrated for a few cycles with a dense time granularity until a periodic stabilization detection
-  2. The profiles of all variables over the last cycle are resampled to a far lower (i.e. sparse) sampling rate
-  3. A subset of the ODE system is integrated with a sparse time granularity, while the remaining variables are periodically expanded from their last cycle profile, until the end of the period or that of an predefined update interval.
-  4. The process is repeated from step 1
+- `HybridSolver` inherits from both `PeriodicSolver`and `EventDrivenSolver`. It integrates a differential system using a hybrid scheme inside each "ON" or "OFF" period. First, the full ODE system is integrated for a few cycles with a dense time granularity until a periodic stabilization detection. Then, the profiles of all variables over the last cycle are resampled to a far lower (i.e. sparse) sampling rate. Next, a subset of the ODE system is integrated with a sparse time granularity, while the remaining variables are periodically expanded from their last cycle profile, until the end of the period or that of an predefined update interval. This process is then repeated throughout the simulation.
 
 ### Neurons
 
