@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2017-06-13 09:40:02
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-05-18 09:02:38
+# @Last Modified time: 2023-05-18 09:06:45
 
 import os
 from setuptools import setup
@@ -53,7 +53,7 @@ setup(
     ],
     keywords=('SONIC NICE acoustic ultrasound ultrasonic neuromodulation neurostimulation excitation\
              computational model intramembrane cavitation'),
-    author='Théo Lemaire',
+    author='Theo Lemaire',
     author_email='theo.lemaire1@gmail.com',
     license='MIT',
     packages=['PySONIC'],
