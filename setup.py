@@ -3,19 +3,13 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2017-06-13 09:40:02
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2023-03-15 13:12:34
+# @Last Modified time: 2023-05-18 09:02:38
 
 import os
 from setuptools import setup
 
 readme_file = 'README.md'
 requirements_file = 'requirements.txt'
-
-
-def readme():
-    with open(readme_file, encoding="utf8") as f:
-        return f.read()
-
 
 def description():
     with open(readme_file, encoding="utf8") as f:
@@ -30,7 +24,9 @@ def description():
                     break
                 else:
                     lines.append(line)
-    return ''.join(lines).strip('\n')
+    desc = ''.join(lines).strip('\n')
+    more = 'More information on the [https://github.com/tjjlemaire/PySONIC](Github repository).'
+    return f'{desc}\n\n{more}'
 
 
 def getFiles(path):
@@ -46,9 +42,9 @@ def get_requirements():
 setup(
     name='PySONIC',
     version='1.0',
-    description=description(),
-    long_description=readme(),
-    url='https://iopscience.iop.org/article/10.1088/1741-2552/ab1685',
+    description='Python implementation of the NICE & SONIC models, allowing for rapid simulations of ultrasound-evoked membrane dynamics in various point-neuron models.',
+    long_description=description(),
+    url='https://github.com/tjjlemaire/PySONIC',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
