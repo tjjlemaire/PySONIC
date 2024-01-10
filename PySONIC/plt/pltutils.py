@@ -3,7 +3,7 @@
 # @Email: theo.lemaire@epfl.ch
 # @Date:   2017-08-21 14:33:36
 # @Last Modified by:   Theo Lemaire
-# @Last Modified time: 2021-06-18 19:37:13
+# @Last Modified time: 2024-01-10 11:48:18
 
 ''' Useful functions to generate plots. '''
 
@@ -256,8 +256,7 @@ class GenericPlot:
 
     @staticmethod
     def setTickLabelsFontSize(ax, fs):
-        for tick in ax.xaxis.get_major_ticks() + ax.yaxis.get_major_ticks():
-            tick.label.set_fontsize(fs)
+        ax.tick_params(axis='both', which='major', labelsize=fs)
 
     @staticmethod
     def setXLabel(ax, xplt, fs):
